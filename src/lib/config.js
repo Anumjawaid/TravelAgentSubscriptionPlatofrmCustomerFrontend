@@ -28,4 +28,6 @@ export const API_MODE = MODE;
 export const API_BASE_URL = `${selectedUrl}/api/v1`;
 
 export const BRAND_NAME = (process.env.NEXT_PUBLIC_BRAND_NAME || 'Your Transfers').trim();
+// Optional agent this site's bookings are for (see .env.example). Sent with every booking.
+export const AGENT_EMAIL = (process.env.NEXT_PUBLIC_AGENT_EMAIL || '').trim().toLowerCase();
 export const DEFAULT_RATE_TAG = (process.env.NEXT_PUBLIC_DEFAULT_RATE_TAG || '').trim().toLowerCase();

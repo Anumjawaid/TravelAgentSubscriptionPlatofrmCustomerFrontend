@@ -7,6 +7,7 @@ import { todayIso } from '@/lib/format';
 import { validateBooking } from '@/lib/validation';
 import BookingSummary from './BookingSummary';
 import { ArrowRightIcon, CheckIcon, MailIcon } from './Icons';
+import { AGENT_EMAIL } from '@/lib/config';
 
 // Order used to focus the first invalid field.
 const FIELD_ORDER = ['pickupDate', 'pickupTime', 'passengers', 'name', 'email', 'phone', 'flightNumber', 'comments'];
@@ -105,6 +106,7 @@ export default function BookingFlow({ rate, initialDate = '', initialPassengers 
         passengers: Number(values.passengers),
         ...(flightNumber ? { flightNumber } : {}),
         ...(comments ? { comments } : {}),
+        ...(AGENT_EMAIL ? { agentEmail: AGENT_EMAIL } : {}), // from NEXT_PUBLIC_AGENT_EMAIL in .env
       });
       setResult(data);
     } catch (err) {
